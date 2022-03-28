@@ -28,6 +28,13 @@ public final class Main {
                         .flatMap(Stream::of)
                         .collect(Collectors.toList());
 
+        /**
+
+        final List<Integer> basis2 =  TEMPLATE_TRIANGLE_LIST.stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList())
+         */
+
         final Integer[][] exponent =
                 IntStream.range(FIRST, TOTAL)
                         .mapToObj(x ->
@@ -35,6 +42,15 @@ public final class Main {
                                         .map(y -> y + (BLOCK * x))
                                         .toArray(Integer[]::new))
                         .toArray(Integer[][]::new);
+
+       /** final List<List<Integer>> integers =
+                IntStream.range(FIRST, TOTAL)
+                        .mapToObj(x ->
+                                basis2.stream()
+                                        .map(y -> y + (BLOCK * x))
+                                        .toList())
+                        .toList(Collectors.toList());
+        **/
 
         final List<String> result =
                 Stream.of(exponent)
