@@ -5,6 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.josef.sort.model.Url;
 import fr.maif.json.Json;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.lang.reflect.Type;
@@ -76,7 +79,38 @@ public final class Main {
 
         gson.toJson(nodes, listType, writer);
         writer.close();
+
+        String str = readAllBytesJava7(
+                "/Users/Joseph/IdeaProjects/JosephSort/src/main/java/com/josef/sort/file/output.json"
+        ).replaceAll("\"", "\\\"");
+
+        String src = str;
+        BufferedWriter writer2 = new BufferedWriter(new FileWriter("/Users/Joseph/IdeaProjects/JosephSort/src/main/java/com/josef/sort/file/output.json"));
+        writer2.write(src);
+
+        writer.close();
+        System.out.println(src);
+
     }
+
+    private static String readAllBytesJava7(String filePath)
+    {
+        String content = "";
+
+        try
+        {
+            content = new String ( Files.readAllBytes( Paths.get(filePath) ) );
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return content;
+    }
+
+
+
 }
 
 
