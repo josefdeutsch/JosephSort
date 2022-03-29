@@ -9,11 +9,10 @@ import java.nio.file.Paths;
 public final class Main {
 
     public static void main(String[] args) throws IOException {
-        String str = readAllBytesJava7(
-                "/Users/Joseph/IdeaProjects/JosephSort/src/main/java/com/josef/sort/file/output.json"
-        ).replaceAll("\"", "\\\"");
-
-        System.out.println(str);
+     //   String str = readAllBytesJava7(
+          //      "/Users/Joseph/IdeaProjects/JosephSort/src/main/java/com/josef/sort/file/output.json"
+      //  ).replaceAll("\"", "\\\"");
+        System.out.println(Reader.readFile_BufferedFileReader_ReadLine());
     }
 
     private static String readAllBytesJava7(String filePath)
