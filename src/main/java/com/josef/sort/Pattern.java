@@ -4,6 +4,7 @@ import com.josef.sort.model.Url;
 import fr.maif.json.Json;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -53,19 +54,16 @@ public class Pattern {
         final List<String> nodes =
                 result.stream()
                         .map(src -> String.format(REGEX, Integer.valueOf(src)))
-                        .map(src -> src)
                         .map(src -> Json.toJson(Url.builder()
                                 .url(src)
-                               // .ext(EXT)
-                               // .id(UUID.randomUUID().toString())
+                                .ext(EXT)
+                                .id(UUID.randomUUID().toString())
                                 .build(), Url.format()))
                         .map(Json::stringify)
                         .collect(Collectors.toList());
 
-
         String str = nodes.toString();
         System.out.println(str);
-
 
 
        // final Type listType = new TypeToken<List<String>>() {}.getType();
@@ -75,8 +73,5 @@ public class Pattern {
        // gson.toJson(nodes, listType, writer);
        // writer.close();
 
-
     }
-
-
 }
