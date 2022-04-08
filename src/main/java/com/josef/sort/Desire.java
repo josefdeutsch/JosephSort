@@ -37,7 +37,12 @@ public final class Desire {
         String str = nodes.toString();
         System.out.println(str);
 
+        // final Type listType = new TypeToken<List<String>>() {}.getType();
+        // final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        // final Writer writer = Files.newBufferedWriter(Paths.get(PATH));
 
+        // gson.toJson(nodes, listType, writer);
+        // writer.close();
 
     }
 
